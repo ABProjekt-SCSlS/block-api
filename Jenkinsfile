@@ -1,38 +1,45 @@
 pipeline {
     agent none
     environment {
-        NEXUS_HOST = 'nexus:8081'
+        SPRING_BOOT_WEBBLOG_DB_URL = 'jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_blog?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8'
+        SPRING_BOOT_WEBBLOG_DB_USERNAME = 'root'
+        SPRING_BOOT_WEBBLOG_DB_PASSWORD = 'root'
     }
     stages {
-        stage('unit tests') {
+         stage('build') {
+           agent {
+                docker { 
+                    image 'maven:3.6.3-adoptopenjdk-14'
+                }
+            }
             steps {
-                echo 'unit tests'
+                sh 'mvn compile'
             }
          }
-        stage('nexus upload') {
-            steps {
-            	echo 'nexus upload'
+
+         stage('Unit tests') {
+             agent {
+                docker { 
+                    image 'maven:3.6.3-adoptopenjdk-14'
+                }
             }
-        }
-        stage('artifact package') {
             steps {
-                echo 'artifact package'
+                sh 'mvn test'
             }
-        }
-        stage('container runs') {
+         }
+         
+         stage('warfile erstellen') {
+             agent {
+                docker { 
+                    image 'maven:3.6.3-adoptopenjdk-14'
+                    args '--network abschlussprojekt'
+                }
+            }
             steps {
-            	echo 'container runs'
+                sleep (7)
+                sh 'mvn clean package'
             }
-        }
-        stage('integration tests') {
-            steps {
-            	echo 'integration tests'
-            }
-        }
-        stage('container stops') {
-            steps {
-            	echo 'container stops'
-            }
-        }
+         }
+        
     }
 }
