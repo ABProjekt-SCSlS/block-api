@@ -38,8 +38,23 @@ pipeline {
             steps {
                 sleep (7)
                 sh 'mvn clean package'
+                sh 'ls target'
+         
             }
          }
-        
+         stage ('deploy on tomcat') {
+             agent {
+                docker { 
+                    image 'maven:3.6.3-adoptopenjdk-14'
+                    args '--network abschlussprojekt'
+                }
+            }
+            steps {
+                sleep (7)
+                sh 'mvn clean deploy'
+                bat '''/var/jenkins_home/workspace/Abschlussprojekt_decpipeline/target/spring-boot-webblog.war
+                /usr/local/tomcat/webapps'''
+            }
+         }
     }
 }
