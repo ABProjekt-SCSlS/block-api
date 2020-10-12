@@ -1,7 +1,7 @@
 pipeline {
     agent none
     environment {
-        SPRING_BOOT_WEBBLOG_DB_URL = 'jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_blog?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8'
+        SPRING_BOOT_WEBBLOG_DB_URL = 'jdbc:mysql://${MYSQL_HOST:localhost}:3000/db_blog?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8'
         SPRING_BOOT_WEBBLOG_DB_USERNAME = 'root'
         SPRING_BOOT_WEBBLOG_DB_PASSWORD = 'root'
     }
