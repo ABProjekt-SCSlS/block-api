@@ -23,11 +23,22 @@ pipeline {
                 }
             }
             steps {
-                sh 'mvn test -Dtest=!SpringBootWebblogApplicationTests'
+                sh 'mvn test'
             }
          }
          
-         
+         stage('warfile erstellen') {
+             agent {
+                docker { 
+                    image 'maven:3.6.3-adoptopenjdk-14'
+                    args '--network abschlussprojekt'
+                }
+            }
+            steps {
+                sleep (7)
+                sh 'mvn clean package'
+            }
+         }
         
     }
 }
