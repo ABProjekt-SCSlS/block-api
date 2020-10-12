@@ -27,7 +27,7 @@ pipeline {
             }
          }
          
-         stage('warfile erstellen') {
+         stage ('warfile erstellen') {
              agent {
                 docker { 
                     image 'maven:3.6.3-adoptopenjdk-14'
