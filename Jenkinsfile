@@ -37,6 +37,7 @@ pipeline {
             steps {
                 sleep (7)
                 sh 'mvn clean package'
+                sh 'ls target'
             }
          }
         
