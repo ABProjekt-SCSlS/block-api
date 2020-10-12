@@ -23,7 +23,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'mvn test -Dtest=!SpringBootTest'
+                sh 'mvn test -Dtest=!SpringBootWebblogApplicationTests'
             }
          }
          
