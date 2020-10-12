@@ -16,8 +16,7 @@ pipeline {
                 sh 'mvn compile'
             }
          }
-
-         stage('Unit tests') {
+    stage('Unit tests') {
              agent {
                 docker { 
                     image 'maven:3.6.3-adoptopenjdk-14'
@@ -28,18 +27,7 @@ pipeline {
             }
          }
          
-         stage('warfile erstellen') {
-             agent {
-                docker { 
-                    image 'maven:3.6.3-adoptopenjdk-14'
-                    args '--network abschlussprojekt'
-                }
-            }
-            steps {
-                sleep (7)
-                sh 'mvn clean package'
-            }
-         }
+         
         
     }
 }
