@@ -57,7 +57,6 @@ pipeline {
                         }
                     }
          }
-        
          stage ('deploy on tomcat') {
              agent {
                 docker { 
