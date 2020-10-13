@@ -48,11 +48,12 @@ pipeline {
                     agent {
                         docker {
                             image 'maven:3.6.3-adoptopenjdk-14'
-                            args '--network tools'
+                            args '--network abschlussprojekt'
                         }
                     }
                     steps  {
                             withCredentials([usernamePassword(credentialsId: 'nexus_credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
+                            cd 'C:/Users/KarinaMichalczyk/Documents/Academic-Work/Abschlussprojekt/block-api'
                             sh 'mvn -s settings.xml deploy'
                         }
                     }
