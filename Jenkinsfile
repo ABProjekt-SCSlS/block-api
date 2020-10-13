@@ -53,11 +53,25 @@ pipeline {
                     }
                     steps  {
                             withCredentials([usernamePassword(credentialsId: 'nexus_credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
-                            cd 'C:/Users/KarinaMichalczyk/Documents/Academic-Work/Abschlussprojekt/block-api'
                             sh 'mvn -s settings.xml deploy'
                         }
                     }
          }
+
+         stage('nexus pull and add in target directory') {
+            agent {
+                docker {
+                    image 'curlimages/curl'
+                    args '--network abschlussprojekt'
+                }
+            }
+        	steps {
+           		sh 'curl -O -v http://nexus:8081/nexus/de/awacademy/spring-boot-webblog/0.0.1-SNAPSHOT/spring-boot-webblog-0.0.1-20201013.130347-26.war'
+                sh 'mv spring-boot-webblog-0.0.1-20201013.130347-26.war spring-boot-webblog-nexus.war'
+                sh 'mv spring-boot-webblog-nexus.war target/'
+                sh 'ls target'
+        	}
+        }
          stage ('deploy on tomcat') {
              agent {
                 docker { 
