@@ -1,0 +1,13 @@
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\entities\Post.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\entities\Rating.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\controllers\WebblogController.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\repositories\PostRepository.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\entities\User.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\SpringBootWebblogApplication.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\repositories\RatingRepository.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\repositories\UserRepository.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\entities\Comment.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\repositories\CommentRepository.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\dtos\PostDto.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\services\PostService.java
+C:\Users\IuliiaScheel\Desktop\Java_Schulungsaufgaben\abprojekt\block-api\src\main\java\de\awacademy\springbootwebblog\dtos\CommentDto.java
