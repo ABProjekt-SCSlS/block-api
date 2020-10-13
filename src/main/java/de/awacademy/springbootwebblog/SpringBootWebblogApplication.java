@@ -15,6 +15,7 @@ import de.awacademy.springbootwebblog.entities.Comment;
 import de.awacademy.springbootwebblog.entities.Post;
 import de.awacademy.springbootwebblog.entities.Rating;
 import de.awacademy.springbootwebblog.entities.User;
+import de.awacademy.springbootwebblog.logger.SpringLoggerApplication;
 import de.awacademy.springbootwebblog.repositories.CommentRepository;
 import de.awacademy.springbootwebblog.repositories.PostRepository;
 import de.awacademy.springbootwebblog.repositories.RatingRepository;
