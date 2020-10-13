@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>block-api</name>
+=======
+	<name>spring-boot-webblog</name>
+>>>>>>> 473fc118b806746ba4067cbb2e72cdac53e95df1
 	<comment></comment>
 	<projects>
 	</projects>

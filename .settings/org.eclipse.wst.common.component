@@ -6,6 +6,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
         <property name="context-root" value="spring-boot-webblog"/>
+<<<<<<< HEAD
         <property name="java-output-path" value="/block-api/target/classes"/>
+=======
+        <property name="java-output-path" value="/spring-boot-webblog/target/classes"/>
+>>>>>>> 473fc118b806746ba4067cbb2e72cdac53e95df1
     </wb-module>
 </project-modules>
