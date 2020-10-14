@@ -92,7 +92,7 @@ pipeline {
                 }
             }
             steps {
-                sh ' mvn -s settings.xml clean verify sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=ea207fd6669d7bb4af28a152488cbca5d804f41a -Dsonar.projectName=abschlussprojekt -Dsonar.projectVersion=1'
+                sh ' mvn -s settings.xml clean verify sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=9c9e7635099a03aaeac3f550c97724288fd3d901 -Dsonar.projectName=abschlussprojekt -Dsonar.projectVersion=1'
 
             }
         }
