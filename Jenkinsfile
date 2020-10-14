@@ -7,6 +7,7 @@ pipeline {
         SPRING_BOOT_WEBBLOG_DB_URL = 'jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_blog?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8'
         SPRING_BOOT_WEBBLOG_DB_USERNAME = 'root'
         SPRING_BOOT_WEBBLOG_DB_PASSWORD = 'root'
+        SONARQUBE_HOST = 'sonarqube:9000'
     }
     stages {
          stage('build') {
@@ -91,7 +92,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cd app && mvn -s settings.xml clean verify sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=ea207fd6669d7bb4af28a152488cbca5d804f41a -Dsonar.projectName=abschlussprojekt -Dsonar.projectVersion=1'
+                sh ' mvn -s settings.xml clean verify sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=ea207fd6669d7bb4af28a152488cbca5d804f41a -Dsonar.projectName=abschlussprojekt -Dsonar.projectVersion=1'
 
             }
         }
