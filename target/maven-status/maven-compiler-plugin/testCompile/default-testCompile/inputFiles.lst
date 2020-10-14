@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 /mnt/c/Users/KarinaMichalczyk/Documents/Academic-Work/Abschlussprojekt/block-api/src/test/java/de/awacademy/springbootwebblog/services/PostServiceTest.java
 /mnt/c/Users/KarinaMichalczyk/Documents/Academic-Work/Abschlussprojekt/block-api/src/test/java/de/awacademy/springbootwebblog/SpringBootWebblogApplicationTests.java
+=======
+/mnt/c/Users/IuliiaScheel/Desktop/Java_Schulungsaufgaben/abprojekt/block-api/src/test/java/de/awacademy/springbootwebblog/services/PostServiceTest.java
+/mnt/c/Users/IuliiaScheel/Desktop/Java_Schulungsaufgaben/abprojekt/block-api/src/test/java/de/awacademy/springbootwebblog/SpringBootWebblogApplicationTests.java
+>>>>>>> b8ac3d0463bba743b01d9fa4636fca9fcd224fcc
