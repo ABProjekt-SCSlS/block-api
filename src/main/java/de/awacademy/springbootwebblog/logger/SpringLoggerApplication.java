@@ -11,13 +11,13 @@ public class SpringLoggerApplication {
 	 static final Logger log = 
 		        LoggerFactory.getLogger(SpringLoggerApplication.class);
 		  
-		     public void doSomething(final String args) {  // darf keine main Methode sein --> wurde umgeschrieben
-		     log.info("Before Starting application");
-		     SpringApplication.run(SpringLoggerApplication.class, args);
-		     log.debug("Starting my application in debug with {} args", args.length()); 
-		     log.info("Starting my application with {} args.", args.length());  
-		    }
-		  }
+	 public static void main(String[] args) {
+	     log.info("Before Starting application");
+	     SpringApplication.run(SpringLoggerApplication.class, args);
+	     log.debug("Starting my application in debug with {} args", args.length);
+	     log.info("Starting my application with {} args.", args.length);  
+	    }
+	  }
 
 
 
