@@ -52,5 +52,16 @@ pipeline {
                 echo 'mvn deploy'
             }
          }
+         stage('sonarqube') {
+            agent {
+                docker {
+                    image 'maven:3.6.3-adoptopenjdk-14'
+                    args '--network abschlussprojekt'
+                }
+            }
+            steps {
+                sh 'cd app && mvn -s settings.xml clean verify sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=d405de432ed34ed78f8dbe5bfbcd9fe340eb9940 -Dsonar.projectName=abschlussprojekt'
+            }
+        }
     }
 }
