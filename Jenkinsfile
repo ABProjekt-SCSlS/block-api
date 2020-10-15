@@ -8,5 +8,12 @@ pipeline {
             }
         }
     }
-}
+         stage('mvn test') {
+            steps {
+              script {
+               		mvn.test()
+            }
+            }
+         }
+    }
 }
