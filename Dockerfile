@@ -6,3 +6,5 @@ ENV SPRING_BOOT_WEBBLOG_DB_PASSWORD root
 
 COPY target/spring-boot-webblog.war /usr/local/tomcat/webapps/webblog.war
 COPY settings.xml /usr/local/tomcat/settings.xml
+
+CMD ["sh","catalina.sh","run"]
