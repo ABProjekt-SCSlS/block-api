@@ -15,5 +15,13 @@ pipeline {
             }
             }
          }
-    }
+    
+          stage('Statische Codeanalyse') {
+            steps {
+              script {
+               		mvn.verify()
+            }
+            }
+ }
+}
 }
