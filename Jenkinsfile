@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('mvn compile') {
             steps {
-              echo "Hallo Welt"
+              script {
+               		mvn.compile()
             }
         }
     }
+}
 }
