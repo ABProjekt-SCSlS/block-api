@@ -17,7 +17,7 @@
 
 	<packaging>war</packaging> <!-- Deploy Spring Boot to Tomcat -->
 
-	<name>spring-boot-webblog</name>
+	<name>scsls-webblog</name>
 	<description>Spring Boot Webblog Project</description>
 
 	<properties>
