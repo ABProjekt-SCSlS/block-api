@@ -28,7 +28,9 @@ pipeline {
             steps {
               script {
                		mvn.artifactpackage()
+                   
             }
+            echo 'Hallo Jenkins'
             }
  }
 }

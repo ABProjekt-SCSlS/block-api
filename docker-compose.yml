@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+
+  db:
+    image: mysql:latest
+    container_name: g4-mysql
+    build:
+      context: Mysql_dockerfile
+      dockerfile: Dockerfile
+    ports:
+     - 3306:3306
+
+  server:
+    image: tomcat-mysql-test
+    container_name: g4-tomcat
+    build:
+      context: Tomcat_dockerfile
+      dockerfile: Dockerfile
+    ports:
+     - 8787:8080
+
+
