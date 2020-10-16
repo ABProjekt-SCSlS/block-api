@@ -39,7 +39,6 @@ pipeline {
                 }
             }
         }
-
      stage('Deployment to Tomcat') {
             steps {
                 script {
