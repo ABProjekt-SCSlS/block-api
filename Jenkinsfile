@@ -30,7 +30,6 @@ pipeline {
                		mvn.artifactpackage()
                    
             }
-            echo 'Hallo Jenkins'
             }
  }
 }
