@@ -30,6 +30,15 @@ pipeline {
             }
         }
 
+        stage('Package and deploy to Nexus') {
+            steps {
+                script {
+                    
+                    echo 'warten auf gruppe nginy'
+                    
+                }
+            }
+        }
 
      stage('Deployment to Tomcat') {
             steps {
