@@ -23,7 +23,6 @@ pipeline {
             }
             }
  }
-        
         stage('WAR File erstellen') {
             steps {
               script {
