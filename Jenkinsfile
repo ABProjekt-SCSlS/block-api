@@ -15,7 +15,6 @@ pipeline {
             }
             }
          }
-    
           stage('Statische Codeanalyse') {
             steps {
               script {
