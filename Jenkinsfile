@@ -1,15 +1,33 @@
 pipeline {
     agent any
       stages {
-         stage('deploy on Tomcat') {
-           agent {
-                docker { 
-                    image 'maven:3.6.3-adoptopenjdk-14'
+         stage('mvn compile') {
+            steps {
+                script {
+                    mvn.compile()
                 }
             }
+        }
+      stage('mvn test') {
             steps {
-                sh 'mvn tomcat7:deploy'
+                script {
+                    mvn.test()
+                }
             }
-         }
-}
+        }
+      stage('Statische Code-Analyse') {
+            steps {
+                script {
+                    mvn.verify()
+                }
+            }
+        }
+      stage('mvn package') {
+            steps {
+                script {
+                    mvn.artifactpackage()
+                }
+            }
+        }
+    } 
 }
