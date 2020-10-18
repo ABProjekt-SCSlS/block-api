@@ -22,6 +22,7 @@ pipeline {
                 }
             }
         }
+
       stage('mvn package') {
             steps {
                 script {
@@ -29,6 +30,19 @@ pipeline {
                 }
             }
         }
+
+      stage('Package and deploy to Nexus') {
+            steps{
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
+                    script {
+
+                        mvn.deploy()
+
+                    }
+                }
+            }
+        }
+
         stage('mvn deploy on Tomcat') {
             steps {
                     sh 'mvn tomcat7:redeploy'
