@@ -1,0 +1,42 @@
+was ist zu dokumentieren?
+
+- sharedLibrary
+  - struktur
+  - code
+  - organisation (anordnung der pakete)
+  - design pattern
+
+- pipeline
+  - struktur / stages
+  - schrittinhalte
+  - umgebungsvariablen / (globale) einstellungen
+  - einbettung in ci/cd
+  - unterschied multibranch und normaler pipeline
+
+- webhook
+  - einstellungen
+  - besonderheiten (verhalten kontrollieren, einschalten, ausschalten etc.)
+  - was wird ausgeloest?
+
+- logging
+  - was wird geloggt?
+  - logging streams
+  - verarbeitung durch fluentd
+  - config files, plugins maven
+  - grafische Darstellung (kibana)
+
+- metriken
+  - welche metriken machen sinn
+  - config files (prometheus), plugins maven
+  - grafische Darstellung
+
+- tomcat / deployment / artefakte
+  - config files, maven
+  - ordnerstruktur
+
+- sourcecode
+  - maven plugins
+  - appplications properties
+  - klassen
+  - methoden
+  - uml diagramm
