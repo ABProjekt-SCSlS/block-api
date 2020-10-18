@@ -1,0 +1,79 @@
+version: "2.1"
+
+networks:
+ tools:
+  external:
+   name: tools
+
+services:
+ nginx:
+  image: nginx:latest
+  ports:
+  - "80:80"
+  volumes:
+  - /mnt/c/Users/AdrianaPetrich/workspace/abschlussprojekt:/usr/share/nginx/html/
+  depends_on:
+  - fluentd
+  logging: 
+    driver: "fluentd"
+    options:
+      fluentd-address: localhost:24224
+      tag: nginx.access
+     
+
+ fluentd:
+  build: ./fluentd/
+  volumes:  
+  - ./fluentd/conf:/fluentd/etc
+  ports:
+  - "24224:24224" #tcp Protokoll
+  - "24224:24224/udp" #udp Protokoll als Portfreigabe
+  networks: 
+  - tools
+  depends_on:
+  - elasticsearch
+
+
+ elasticsearch:
+  image: elasticsearch:7.9.2
+  environment:
+  - "discovery.type=single-node"
+  ports:
+  - "9200:9200"
+  networks: 
+  - tools
+
+ kibana:
+  image: kibana:7.9.2
+  links:
+  - "elasticsearch"
+  ports:
+  - 5601:5601
+  networks: 
+  - tools
+
+ prometheus:
+  image: prom/prometheus:v2.1.0
+  volumes:
+  - ./prometheus/:/etc/prometheus/
+  - prometheus_data:/prometheus
+  ports:
+  - 9090:9090
+  networks:
+  - tools
+ 
+ grafana:
+  image: grafana/grafana:7.9.2
+   container_name: grafana
+   environment:
+   - GF_SECURITY_ADMIN_USER=${ADMIN_USER}
+   - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD}
+   - GF_USERS_ALLOW_SIGN_UP=false
+   expose:
+   - 3000
+   depends_on:
+   - prometheus
+   networks:
+   - tools
+   labels:
+    org.label-schema.group: "monitoring"    
