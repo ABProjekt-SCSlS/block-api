@@ -45,9 +45,10 @@ pipeline {
 
         stage('mvn deploy on Tomcat') {
             steps {
-                //withCredentials([usernamePassword(credentialsId: 'tomcat', passwordVariable: 'tomcat_password', usernameVariable: 'tomcat_user')]) {
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]) {
                 script {
                     mvn.tomcat()
+                }
                 }
             }
         }
