@@ -21,7 +21,7 @@
 	<description>Spring Boot Webblog Project</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
@@ -52,50 +52,84 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+		<exclusions>
+			<exclusion>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+			</exclusion>
+        	<exclusion>
+            	<groupId>org.junit.vintage</groupId>
+            	<artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter-engine</artifactId>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter-params</artifactId>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+    	<groupId>org.mockito</groupId>
+    	<artifactId>mockito-junit-jupiter</artifactId>
+    	<scope>test</scope>
+	</dependency>
 
-		<dependency> <!-- Deploy Spring Boot to Tomcat -->
+	<!-- 	<dependency> Deploy Spring Boot to Tomcat 
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
+
+
+	<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-core</artifactId>
+</dependency>
+
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+</dependency>
+
+
 
 	</dependencies>
 
 	<build>
-		<finalName>${artifactId}</finalName> <!-- Deploy Spring Boot to Tomcat -->
+		<finalName>${artifactId}</finalName> 
 		
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.2</version>
 				<configuration>
-					<url>http://tomcat:8080/manager/text</url>
+					<url>http://52.233.247.20:8082/manager/text</url>
 					<server>tomcat</server>
-					<path>/scsls_webblog</path>
-				</configuration>
+					<path>/${artifactId}</path>
+					<username>${TOMCAT_USER}</username>
+					<password>${TOMCAT_PASSWORD}</password>
+					<update>true</update>
+				 </configuration>
 			</plugin>
 		</plugins>
 	</build>
