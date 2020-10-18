@@ -45,10 +45,8 @@ pipeline {
 
         stage('mvn deploy on Tomcat') {
             steps {
-                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]) {
-                script {
-                    mvn.tomcat()
-                }
+                //configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]) {
+                    sh 'mvn tomcat7:redeploy'
                 }
             }
         }
