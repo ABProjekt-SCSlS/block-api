@@ -124,13 +124,22 @@
 					<version>2.2</version>
 				<configuration>
 					<url>http://52.233.247.20:8082/manager/text</url>
+<<<<<<< HEAD
 					<server>tomcat</server>
 					<path>/${artifactId}</path>
 					<username>${TOMCAT_USER}</username>
 					<password>${TOMCAT_PASSWORD}</password>
 					<update>true</update>
 				 </configuration>
+=======
+					<server>tomcatserver</server>
+					<username>tomcat</username>
+                    <password>s3cret</password>
+					<path>/scsls-webblog</path>
+				</configuration>
+>>>>>>> 944351e7b7baed8a0e9b369878a9f5ee962303e9
 			</plugin>
+
 		</plugins>
 	</build>
 

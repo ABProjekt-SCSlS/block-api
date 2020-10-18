@@ -1,53 +1,38 @@
 pipeline {
     agent any
-    stages {
-        stage('mvn compile') {
+      stages {
+         stage('mvn compile') {
             steps {
                 script {
-                    
-                    mvn.compile() 
-                    
+                    mvn.compile()
                 }
             }
         }
-        stage('mvn test') {
+      stage('mvn test') {
             steps {
                 script {
-                    
                     mvn.test()
-                    
                 }
             }
         }
-
-        stage('mvn verify/sonar') {
+      stage('Statische Code-Analyse') {
             steps {
                 script {
-                    
                     mvn.verify()
-                    
                 }
             }
         }
-
-        stage('Package and deploy to Nexus') {
+      stage('mvn package') {
             steps {
                 script {
-                    
-                    echo 'warten auf gruppe nginy'
-                    
+                    mvn.artifactpackage()
                 }
             }
         }
-     stage('Deployment to Tomcat') {
+        stage('mvn deploy on Tomcat') {
             steps {
-                script {
-                    
-                    echo 'Deployment to Tomcat'
-                    
-                }
+                    sh 'mvn tomcat7:redeploy'
             }
         }
-        
-    }
+    } 
 }
