@@ -46,7 +46,7 @@ pipeline {
         stage('mvn deploy on Tomcat') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'tomcat', passwordVariable: 'tomcat_password', usernameVariable: 'tomcat_user')]) {
-                    sh 'mvn tomcat7:run'
+                    sh 'mvn tomcat7:redeploy'
                 }
             }
         }
