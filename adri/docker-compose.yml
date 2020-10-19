@@ -59,6 +59,8 @@ services:
   - prometheus_data:/prometheus
   ports:
   - 9090:9090
+  volumes:
+  - /mnt/c/Users/AdrianaPetrich/workspace/abschlussprojekt/block-api/adri/Prometheus/conig:/etc/prometheus/prometheus.yml
   networks:
   - tools
  
