@@ -1,0 +1,65 @@
+version: '3.8'
+networks:
+    tools:
+        external:
+            name: tools
+services:
+    nginx:
+        image: nginx:latest
+        ports: 
+            - "80:80"
+        volumes: 
+        - /mnt/c/Users/KarinaMichalczyk/Documents/Academic-Work/Abschlussprojekt/block-api/karina/prometheus/nginx-volumes:/usr/share/nginx/html
+        depends_on:
+            - fluentd
+        logging:
+            driver: "fluentd"
+            options: 
+                fluentd-address: localhost:24224
+                tag: nginx.access
+    fluentd:
+        build: ./fluentd
+        volumes: 
+            - ./fluentd/conf:/fluentd/etc
+        ports: 
+            - "24224:24224"   
+            - "9001:9001"   
+        depends_on:
+            - elasticsearch
+    elasticsearch:
+        build: ./elasticsearch
+        environment:
+            - "discovery.type=single-node"
+        expose:
+            - "9002"
+        ports:
+            - "9002:9002"
+        networks:
+            - tools
+    kibana:
+        build: ./kibana
+        depends_on:
+            - elasticsearch
+        ports: 
+            - "5601:5601"
+        networks:
+            - tools
+    prometheus:
+        build: ./prometheus
+        volumes:
+            - ./prometheus/:/etc/prometheus/
+            - prometheus_data:/prometheus
+        ports: 
+            - "9004:9004"
+        volumes: 
+            - /mnt/c/Users/KarinaMichalczyk/Documents/Academic-Work/Abschlussprojekt/block-api/karina/prometheus/nginx-volumes:/usr/share/nginx/html
+        networks:
+            - tools
+    grafana:
+        build: ./grafana
+        depends_on:
+            - prometheus
+        ports: 
+            -"9005:9005"
+        networks:
+            - tools
