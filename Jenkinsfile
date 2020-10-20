@@ -66,7 +66,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerPS([docker_opt:""])
+                        dockerlib.build([docker_opt:""])
                 }
             }
         }

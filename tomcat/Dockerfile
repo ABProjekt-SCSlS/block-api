@@ -1,8 +1,8 @@
 FROM tomcat:latest
 
-ENV SPRING_BOOT_WEBBLOG_DB_URL jdbc:mysql://${MYSQL_HOST:52.233.247.20}:8085/db_blog?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8
-ENV SPRING_BOOT_WEBBLOG_DB_USERNAME root
-ENV SPRING_BOOT_WEBBLOG_DB_PASSWORD root
+ENV SPRING_BOOT_WEBBLOG_DB_URL=jdbc:mysql://${MYSQL_HOST:52.233.247.20}:8085/db_blog?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8
+ENV SPRING_BOOT_WEBBLOG_DB_USERNAME=root
+ENV SPRING_BOOT_WEBBLOG_DB_PASSWORD=root
 
 EXPOSE 8080
 
