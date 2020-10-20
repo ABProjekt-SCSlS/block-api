@@ -47,7 +47,7 @@ stage('Test Docker Version') {
             steps{
                     script {
 
-                        docker.dockerversion()
+                        docker.dockerversion([:])
                 }
             }
         }
