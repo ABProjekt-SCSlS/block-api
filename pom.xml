@@ -12,12 +12,12 @@
 	</parent>
 
 	<groupId>de.awacademy</groupId>
-	<artifactId>scsls-webblog</artifactId>
+	<artifactId>scslswebblog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<packaging>war</packaging> <!-- Deploy Spring Boot to Tomcat -->
 
-	<name>scsls-webblog</name>
+	<name>scslswebblog</name>
 	<description>Spring Boot Webblog Project</description>
 
 	<properties>
@@ -126,7 +126,7 @@
 				<configuration>
 					<url>http://52.233.247.20:8082/manager/text</url>
 					<server>tomcat</server>
-					<path>/scsls_webblog</path>
+					<path>/webblogscsls</path>
 					<username>${TOMCAT_USER}</username>
 					<password>${TOMCAT_PASSWORD}</password>
 					<update>true</update>
