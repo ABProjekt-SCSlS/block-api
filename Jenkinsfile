@@ -47,7 +47,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerPS()
+                        dockerlib.dockerPS([docker_opt:""])
                 }
             }
         }
