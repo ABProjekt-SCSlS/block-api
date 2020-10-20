@@ -1,21 +1,21 @@
 pipeline {
     agent any
       stages {
-         stage('mvn compile') {
+        stage('Build Stage') {
             steps {
                 script {
                     mvn.compile()
                 }
             }
         }
-      stage('mvn test') {
+        stage('Unit Testing') {
             steps {
                 script {
                     mvn.test()
                 }
             }
         }
-      stage('Statische Code-Analyse') {
+        stage('Statische Code-Analyse') {
             steps {
                 script {
                     mvn.verify()
@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-      stage('mvn package') {
+        stage('Package Stage') {
             steps {
                 script {
                     mvn.artifactpackage()
@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-      stage('Package and deploy to Nexus') {
+        stage('Deploy to Nexus') {
             steps{
                 configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
                     script {
@@ -39,6 +39,15 @@ pipeline {
                         mvn.deploy()
 
                     }
+                }
+            }
+        }
+
+        stage('Build Test Environment') {
+            steps{
+                    script {
+
+                        dockerlib.dockerPS([docker_opt:""])
                 }
             }
         }
@@ -53,7 +62,16 @@ pipeline {
             }
         }
           
-       stage('Test Docker Version') {
+       stage('Build Docker Image') {
+            steps{
+                    script {
+
+                        dockerlib.dockerPS([docker_opt:""])
+                }
+            }
+        }
+
+        stage('Push Image to Blob Storage') {
             steps{
                     script {
 
