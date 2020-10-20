@@ -4,8 +4,8 @@ pipeline {
         stage('Test Docker Version') {
             steps{
                     script {
-
-                        dockerlib.dockerList([docker_opt:"container"])
+                        config=[docker_opt:""]
+                        dockerlib.dockerList(config)
                 }
             }
         }
