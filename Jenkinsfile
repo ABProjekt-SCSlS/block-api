@@ -74,9 +74,11 @@ pipeline {
 
         stage('Push Image to Blob Storage') {
             steps{
+                withCredentials([usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USER', passwordVariable: 'AZURECR_PASSWORD')]) {
                     script {
 
-                        dockerlib.dockerPS([docker_opt:"",docker_arg:""])
+                        dockerlib.dockerLogin([docker_opt:"",docker_arg:" devopsdus2020.azurecr.io -u ${AZURECR_USER} -p ${AZURECR_PASSWORD}"])
+                    }
                 }
             }
         }
