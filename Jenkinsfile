@@ -43,6 +43,15 @@ pipeline {
             }
         }
           
+       stage('Deploy to Tomcat') {
+            steps{
+                    script {
+
+                        mvn.tomcat()
+                }
+            }
+        }
+          
        stage('Test Docker Version') {
             steps{
                     script {
