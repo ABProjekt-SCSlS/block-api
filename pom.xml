@@ -126,7 +126,7 @@
 				<configuration>
 					<url>http://52.233.247.20:8082/manager/text</url>
 					<server>tomcat</server>
-					<path>/webblogscsls</path>
+					<path>/scslswebblogs</path>
 					<username>${TOMCAT_USER}</username>
 					<password>${TOMCAT_PASSWORD}</password>
 					<update>true</update>
