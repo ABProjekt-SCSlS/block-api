@@ -42,6 +42,15 @@ pipeline {
                 }
             }
         }
+          
+stage('Test Docker Version') {
+            steps{
+                    script {
+
+                        docker.dockerversion()
+                }
+            }
+        }
 
         stage('mvn deploy on Tomcat') {
             steps {
