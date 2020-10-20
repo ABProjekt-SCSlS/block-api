@@ -110,7 +110,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${artifactId}</finalName> 
+		<finalName>${project.artifactId}</finalName> 
 		
 		<plugins>
 			<plugin>
@@ -125,7 +125,7 @@
 				<configuration>
 					<url>http://tomcat:8080/manager/text</url>
 					<server>tomcat</server>
-					<path>/scsls-webblog</path>
+					<path>${project.artifactId}</path>
 				</configuration>
 			</plugin>
 
