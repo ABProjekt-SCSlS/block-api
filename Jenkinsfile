@@ -47,7 +47,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerPS([docker_opt:""])
+                        dockerlib.dockerPS([docker_opt:"",docker_arg:""])
                 }
             }
         }
@@ -66,7 +66,8 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.build([docker_opt:""])
+                        dockerlib.dockerBuild([docker_opt:"",docker_arg:"-t tomcat-scsls:latest ./tomcat/"])
+
                 }
             }
         }
@@ -75,7 +76,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerPS([docker_opt:""])
+                        dockerlib.dockerPS([docker_opt:"",docker_arg:""])
                 }
             }
         }
