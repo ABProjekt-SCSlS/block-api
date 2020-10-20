@@ -66,7 +66,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerBuild([docker_opt:"",docker_arg:"-t tomcat-scsls:latest ./ "])
+                        dockerlib.dockerBuild([docker_opt:"",docker_arg:"-t tomcat-scsls:latest ${WORKSPACE} "])
 
                 }
             }
