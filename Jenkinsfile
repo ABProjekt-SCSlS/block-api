@@ -66,7 +66,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerBuild([docker_opt:"",docker_arg:"-t tomcat-scsls:latest ${WORKSPACE} "])
+                        dockerlib.dockerBuild([docker_opt:"",docker_arg:"-t devopsdus2020.azurecr.io/scsls:latest ${WORKSPACE} "])
 
                 }
             }
@@ -78,7 +78,7 @@ pipeline {
                     script {
 
                         dockerlib.dockerLogin([docker_opt:"",docker_arg:" devopsdus2020.azurecr.io -u ${AZURECR_USER} -p ${AZURECR_PASSWORD}"])
-                        dockerlib.dockerPush([docker_opt:"",docker_arg:"devopsdus2020.azurecr.io tomcat-scsls:latest"])
+                        dockerlib.dockerPush([docker_opt:"",docker_arg:"devopsdus2020.azurecr.io/scsls:latest"])
                         dockerlib.dockerLogout([docker_opt:"",docker_arg:"devopsdus2020.azurecr.io"])
                     }
                 }
