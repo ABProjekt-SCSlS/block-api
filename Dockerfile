@@ -1,10 +1,10 @@
-FROM tomcat:9.0.38-jdk14
+FROM tomcat:latest
 
+EXPOSE 8080
 
-ENV SPRING_BOOT_WEBBLOG_DB_URL jdbc:mysql://mysql:3306/scsls_db_blog?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8
-ENV SPRING_BOOT_WEBBLOG_DB_USERNAME root
-ENV SPRING_BOOT_WEBBLOG_DB_PASSWORD root
+COPY tomcat/tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+COPY tomcat/context.xml /usr/local/tomcat/webapps.dist/manager/META-INF/context.xml
+COPY target/scslswebblog.war /usr/local/tomcat/webapps/scslswebblog.war
 
-COPY target/scsls-webblog.war /usr/local/tomcat/webapps/scsls-webblog.war
+CMD ["catalina.sh", "run"]
 
-CMD ["catalina.sh","run"]
