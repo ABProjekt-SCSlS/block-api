@@ -61,11 +61,12 @@ public class PostService {
 		
 		Comment comment = new Comment(commentDto.getText(), commentDto.getAuthor());
 		commentRepository.save(comment);
-		
 		Optional<Post> postOptional = postRepository.findById(commentDto.getPostId());
-		Post post = postOptional.get(); 
+		if (postOptional.isPresent()) {
+		Post post = postOptional.get();
 		post.getComments().add(comment);
 		postRepository.save(post);
+		}
 	}
-	
 }
+
