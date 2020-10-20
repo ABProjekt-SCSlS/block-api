@@ -45,9 +45,11 @@ pipeline {
           
        stage('Deploy to Tomcat') {
             steps{
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
                     script {
-
+                        
                         mvn.tomcat()
+                    }
                 }
             }
         }
