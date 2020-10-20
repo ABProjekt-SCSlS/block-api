@@ -78,8 +78,8 @@ pipeline {
                     script {
 
                         dockerlib.dockerLogin([docker_opt:"",docker_arg:" devopsdus2020.azurecr.io -u ${AZURECR_USER} -p ${AZURECR_PASSWORD}"])
-                        dockerlib.dockerPush([docker_opt:"",docker_arg:"tomcat-scsls:latest"])
-                        dockerlib.dockerLogout([docker_opt:"",docker_arg:""])
+                        dockerlib.dockerPush([docker_opt:"",docker_arg:"devopsdus2020.azurecr.io tomcat-scsls:latest"])
+                        dockerlib.dockerLogout([docker_opt:"",docker_arg:"devopsdus2020.azurecr.io"])
                     }
                 }
             }
