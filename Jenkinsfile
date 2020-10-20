@@ -5,7 +5,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerversion()
+                        dockerlib.dockerList()
                 }
             }
         }
