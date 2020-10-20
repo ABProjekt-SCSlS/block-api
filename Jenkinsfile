@@ -5,7 +5,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerList()
+                        dockerlib.dockerList([docker_opt:"container"])
                 }
             }
         }
