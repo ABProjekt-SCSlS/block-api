@@ -126,7 +126,7 @@
 				<configuration>
 					<url>http://tomcat:8080/manager/text</url>
 					<server>tomcat</server>
-					<path>${project.artifactId}</path>
+					<path>/${project.artifactId}</path>
 				</configuration>
 			</plugin>
 
