@@ -47,7 +47,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerPS([docker_opt:""])
+                        dockerlib.dockerPS([docker_opt:"",docker_arg:""])
                 }
             }
         }
@@ -66,7 +66,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerPS([docker_opt:""])
+                        dockerlib.dockerPS([docker_opt:"",docker_arg:""])
                 }
             }
         }
@@ -75,7 +75,7 @@ pipeline {
             steps{
                     script {
 
-                        dockerlib.dockerPS([docker_opt:""])
+                        dockerlib.dockerPS([docker_opt:"",docker_arg:""])
                 }
             }
         }
