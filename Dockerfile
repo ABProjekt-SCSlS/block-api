@@ -8,3 +8,4 @@ COPY target/scslswebblog.war /usr/local/tomcat/webapps/scslswebblog.war
 
 CMD ["catalina.sh", "run"]
 
+
