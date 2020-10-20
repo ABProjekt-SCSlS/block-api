@@ -4,7 +4,7 @@ pipeline {
         stage('Test Docker Version') {
             steps{
                     script {
-                        dockerlib.dockerVersion()
+                        dockerlib.dockerList()
                 }
             }
         }
