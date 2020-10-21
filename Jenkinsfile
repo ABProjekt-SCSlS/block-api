@@ -48,7 +48,7 @@ pipeline {
                     script {
                         dockerlib.dockerCompose([docker_opt:"up --build"])
                         dockerlib.dockerPS([docker_opt:"",docker_arg:""])
-                        dockerlib.dockerCompose([docker_opt:"down",docker_arg:""])
+                        dockerlib.dockerCompose([docker_opt:"down"])
                 }
             }
         }
