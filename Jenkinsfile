@@ -46,8 +46,9 @@ pipeline {
         stage('Build Test Environment') {
             steps{
                     script {
-
+                        dockerlib.dockerCompose([docker_opt:"up",docker_arg:"--build"])
                         dockerlib.dockerPS([docker_opt:"",docker_arg:""])
+                        dockerlib.dockerCompose([docker_opt:"down",docker_arg:""])
                 }
             }
         }

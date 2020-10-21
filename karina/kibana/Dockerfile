@@ -1,2 +1,0 @@
-FROM kibana:7.9.2
-EXPOSE 5601
