@@ -48,7 +48,7 @@ pipeline {
                     script {
                         dockerlib.dockerCompose([docker_opt:" -f ${WORKSPACE}/docker-compose.yml up --build -d"])
                         dockerlib.dockerPS([docker_opt:"",docker_arg:""])
-                        dockerlib.dockerCompose([docker_opt:"down"])
+                        dockerlib.dockerCompose([docker_opt:"-f ${WORKSPACE}/docker-compose.yml down -d"])
                 }
             }
         }
